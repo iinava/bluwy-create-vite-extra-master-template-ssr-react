@@ -25,17 +25,16 @@ const Navbar = () => {
           <Link to="/" className="text-xs lg:text-sm font-bold uppercase tracking-widest hover:text-brand-taupe transition-colors">Home</Link>
           <Link to="/about" className="text-xs lg:text-sm font-bold uppercase tracking-widest hover:text-brand-taupe transition-colors">About</Link>
           <Link to="/catalog" className="text-xs lg:text-sm font-bold uppercase tracking-widest hover:text-brand-taupe transition-colors">Catalog</Link>
-          <div className="relative group cursor-pointer flex items-center space-x-1">
-            <span className="text-xs lg:text-sm font-bold uppercase tracking-widest text-brand-brown">Pages</span>
-            <ChevronDown size={14} className="group-hover:rotate-180 transition-transform text-brand-brown" />
-          </div>
-          <a href="#blog" className="text-xs lg:text-sm font-bold uppercase tracking-widest hover:text-brand-taupe transition-colors">Blog</a>
+          <Link to="/contact" className="text-xs lg:text-sm font-bold uppercase tracking-widest hover:text-brand-taupe transition-colors">Contact</Link>
         </div>
 
         {/* Desktop Action */}
-        <button className="hidden md:block bg-brand-brown text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-all shadow-md active:scale-95">
+        <Link 
+          to="/contact"
+          className="hidden md:block bg-brand-brown text-white px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black transition-all shadow-md active:scale-95 text-center"
+        >
           Get in touch
-        </button>
+        </Link>
 
         {/* Mobile Toggle */}
         <button
@@ -53,11 +52,16 @@ const Navbar = () => {
           <Link to="/" onClick={() => setIsOpen(false)} className="text-2xl font-black text-brand-brown uppercase tracking-tight hover:translate-x-2 transition-transform">Home</Link>
           <Link to="/about" onClick={() => setIsOpen(false)} className="text-2xl font-black text-brand-brown uppercase tracking-tight hover:translate-x-2 transition-transform">About Us</Link>
           <Link to="/catalog" onClick={() => setIsOpen(false)} className="text-2xl font-black text-brand-brown uppercase tracking-tight hover:translate-x-2 transition-transform">Catalog</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)} className="text-2xl font-black text-brand-brown uppercase tracking-tight hover:translate-x-2 transition-transform">Contact</Link>
 
           <div className="pt-6 border-t border-brand-light">
-            <button className="w-full bg-brand-brown text-white py-5 rounded-2xl text-sm font-bold uppercase tracking-widest shadow-xl active:scale-95 transition-all">
+            <Link 
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="w-full bg-brand-brown text-white py-5 rounded-2xl text-sm font-bold uppercase tracking-widest shadow-xl active:scale-95 transition-all text-center block"
+            >
               Get in touch
-            </button>
+            </Link>
           </div>
         </div>
       </div>

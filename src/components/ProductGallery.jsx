@@ -1,0 +1,82 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import * as LucideIcons from 'lucide-react';
+const { ArrowRight } = LucideIcons;
+
+const ProductGallery = () => {
+  const products = [
+    {
+      id: 1,
+      name: 'Modern Living Set',
+      image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      id: 2,
+      name: 'Curated Space',
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800'
+    },
+    {
+      id: 3,
+      name: 'Heritage Chair',
+      image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&q=80&w=800'
+    }
+  ];
+
+  return (
+    <section className="py-24 px-6 md:px-12 lg:px-24 bg-white relative overflow-hidden">
+      {/* Background Effect */}
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[repeating-linear-gradient(45deg,#efefef_0px_1px,transparent_1px_8px)] mask-[radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
+        
+        {/* Typography - Left Side */}
+        <div className="w-full lg:w-[45%] space-y-8 order-2 lg:order-1">
+          <div className="space-y-4">
+            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold">Featured Collection</h2>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight">
+              Artistry in <br />
+              <span className="text-brand-brown italic serif font-serif">Every Detail.</span>
+            </h1>
+            <p className="text-slate-500 text-lg leading-relaxed max-w-md">
+              We bring together heritage craftsmanship and modern silhouettes to create furniture that doesn't just fill a room—it completes a home.
+            </p>
+          </div>
+
+          <div className="pt-8">
+            <Link 
+              to="/catalog" 
+              className="group inline-flex items-center gap-6 bg-brand-brown text-white pl-10 pr-4 py-4 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-brown transition-all duration-500 shadow-2xl active:scale-95"
+            >
+              <span>Explore Collection</span>
+              <div className="w-10 h-10 rounded-full bg-white/10 group-hover:bg-brand-brown/10 flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowRight size={18} />
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Photo Gallery - Right Side (Grid) */}
+        <div className="w-full lg:w-[55%] grid grid-cols-2 gap-4 md:gap-6 items-center h-auto md:h-[65vh] order-1 lg:order-2">
+          {/* Column 1: Stacked */}
+          <div className="space-y-4 md:space-y-6 h-full flex flex-col">
+            <div className="group relative overflow-hidden rounded-[3rem] md:rounded-[4rem] shadow-xl transition-all duration-700 flex-1">
+              <img src={products[0].image} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="" />
+            </div>
+
+            <div className="group relative overflow-hidden rounded-[3rem] md:rounded-[4rem] shadow-xl transition-all duration-700 flex-1">
+              <img src={products[1].image} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="" />
+            </div>
+          </div>
+
+          {/* Column 2: Tall */}
+          <div className="group relative overflow-hidden rounded-[3rem] md:rounded-[4rem] shadow-xl h-full transition-all duration-700">
+            <img src={products[2].image} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" alt="" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default ProductGallery;

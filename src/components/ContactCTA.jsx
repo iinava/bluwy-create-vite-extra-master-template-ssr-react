@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+const { ArrowUpRight } = LucideIcons;
 
 const ContactCTA = () => {
   return (
@@ -31,8 +32,7 @@ const ContactCTA = () => {
         </button>
       </div>
 
-      {/* Decorative branding element */}
-      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
+   
     </section>
   );
 };
