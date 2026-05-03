@@ -1,27 +1,33 @@
 import * as LucideIcons from 'lucide-react';
 
 const Facebook = ({ size = 24 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
 );
 
 const Instagram = ({ size = 24 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
 );
 
-const { Phone, Mail, MapPin, Clock, ArrowRight } = LucideIcons;
+const { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown } = LucideIcons;
 
 const Contact = () => {
   return (
     <div className="bg-white min-h-screen pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-        
+
         {/* Hero Section - More Compact */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-16">
           <div className="space-y-4">
-             {/* Ghost Text - Slimmer */}
-            <div className="relative h-12 overflow-hidden select-none pointer-events-none mb-2">
-              <span className="absolute left-0 bottom-0 text-5xl md:text-7xl font-black text-brand-brown opacity-[0.05] uppercase tracking-tighter leading-none">
-                CONNECT
+            {/* Ghost Text - Corrected variable and visibility */}
+            <div className="relative h-16 md:h-24 overflow-hidden select-none pointer-events-none mb-4">
+              <span
+                className="absolute left-0 bottom-0 text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none opacity-30"
+                style={{
+                  WebkitTextStroke: '1px var(--color-brand-brown)',
+                  color: 'transparent'
+                }}
+              >
+                CONTACT
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
@@ -38,7 +44,7 @@ const Contact = () => {
 
         {/* Contact Grid - Tightened */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
+
           {/* Contact Info (Left) */}
           <div className="lg:col-span-4 space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-8 lg:gap-10">
@@ -101,17 +107,17 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-1.5">
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Enter your name" 
+                    <input
+                      type="text"
+                      placeholder="Enter your name"
                       className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
                     />
                   </div>
                   <div className="space-y-1.5">
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      placeholder="+91 00000 00000" 
+                    <input
+                      type="tel"
+                      placeholder="+91 00000 00000"
                       className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
                     />
                   </div>
@@ -134,9 +140,9 @@ const Contact = () => {
 
                 <div className="space-y-1.5">
                   <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Message</label>
-                  <textarea 
-                    rows="4" 
-                    placeholder="Tell us about your requirements..." 
+                  <textarea
+                    rows="4"
+                    placeholder="Tell us about your requirements..."
                     className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all resize-none text-sm"
                   ></textarea>
                 </div>
@@ -151,8 +157,31 @@ const Contact = () => {
             </div>
           </div>
 
+
+
         </div>
 
+      </div>
+
+        {/* Map Section - Refined Rounded Rectangle */}
+        <div className="mt-24 animate-fade-in-up">
+          <div className="mb-10 text-center">
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold mb-3 block">Our Location</span>
+            <h2 className="text-3xl md:text-4xl font-black text-brand-brown leading-none uppercase tracking-tighter">Visit our Showroom</h2>
+          </div>
+          
+          <div className="relative h-[400px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-black/5 grayscale hover:grayscale-0 transition-all duration-1000 mx-auto max-w-5xl">
+            <iframe 
+              src="https://www.google.com/maps?q=Kochi,+Kerala&output=embed" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Aiswarya Furniture Showroom Location"
+            ></iframe>
+        </div>
       </div>
     </div>
   );

@@ -4,11 +4,13 @@ import ProductGallery from '../components/ProductGallery';
 import { AboutWhyUs } from '../components/Whyus';
 // import Features from '../components/Features';
 import ContactCTA from '../components/ContactCTA';
+import { DetailedStats } from '../components/StatsSection';
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <DetailedStats />
       <ProductGallery />
       <AboutWhyUs />
       {/* <Features /> */}

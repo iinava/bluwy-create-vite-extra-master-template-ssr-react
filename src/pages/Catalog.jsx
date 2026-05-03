@@ -14,7 +14,7 @@ const products = [
     name: "Midnight Obsidian Table",
     category: "Dining",
     price: "$12,800",
-    image: "https://images.unsplash.com/photo-1577145900570-7c050c7793d0?w=800&h=1000&fit=crop"
+    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&h=1000&fit=crop"
   },
   {
     id: 3,
@@ -74,39 +74,30 @@ const Catalog = () => {
     <div className="pt-24 pb-20 px-6 md:px-12 bg-brand-light min-h-screen">
       <div className="max-w-7xl mx-auto">
         
-        {/* Revamped Typography Layout Header */}
-        <div className="relative mb-32">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-            <div className="relative">
-              <span className="text-[10px] font-black uppercase tracking-[0.6em] text-brand-gold mb-8 block animate-fade-in-up">Collection Eight / Twenty Six</span>
-              <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black text-brand-brown tracking-tighter uppercase leading-[0.8] animate-fade-in-up">
-                THE <br />
-                <span className="relative">
-                  ARCHIVE
-                  <span className="absolute -top-2 -right-10 text-xs font-serif italic normal-case text-brand-gold/60 tracking-normal">vol. 01</span>
-                </span>
-              </h1>
+        {/* Simplified Header - Matching Contact Style */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-20">
+          <div className="space-y-4">
+             {/* Ghost Text */}
+            <div className="relative h-16 md:h-24 overflow-hidden select-none pointer-events-none mb-4">
+              <span 
+                className="absolute left-0 bottom-0 text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none opacity-30"
+                style={{ 
+                  WebkitTextStroke: '1px var(--color-brand-brown)', 
+                  color: 'transparent' 
+                }}
+              >
+                CATALOG
+              </span>
             </div>
-            
-            <div className="lg:max-w-md animate-fade-in-up delay-200">
-              <p className="text-brand-brown/50 text-sm md:text-base font-medium leading-relaxed mb-8 border-l-2 border-brand-gold/20 pl-6">
-                A definitive curation of our most celebrated works. Each piece is an intersection of historical mastery and contemporary architectural form.
-              </p>
-              <div className="flex items-center space-x-6">
-                <div className="h-[1px] w-12 bg-brand-brown/20"></div>
-                <span className="text-[10px] font-black uppercase tracking-widest text-brand-brown/40">Since 1981</span>
-              </div>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 leading-tight tracking-tight">
+              The Finest <br />
+              <span className="text-brand-brown italic font-serif serif">Archive.</span>
+            </h1>
           </div>
-
-          {/* Floating Search Element */}
-          <div className="absolute top-0 right-0 hidden xl:block animate-fade-in-up delay-300">
-            <div className="group relative">
-              <div className="absolute inset-0 bg-brand-gold/10 rounded-full blur-2xl group-hover:bg-brand-gold/20 transition-all"></div>
-              <button className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl border border-black/5 hover:bg-brand-brown hover:text-white transition-all duration-500">
-                <Search size={20} />
-              </button>
-            </div>
+          <div className="max-w-md pb-1">
+            <p className="text-slate-500 text-base md:text-lg leading-relaxed border-l-2 border-brand-gold/20 pl-6">
+              A definitive curation of our most celebrated works. Each piece is an intersection of historical mastery and contemporary architectural form.
+            </p>
           </div>
         </div>
 
@@ -183,14 +174,8 @@ const Catalog = () => {
           ))}
         </div>
 
-        {/* Load More Section */}
-        <div className="mt-32 border-t border-black/5 pt-20 flex flex-col items-center">
-          <div className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-brown/20 mb-12">End of Collection</div>
-          <button className="relative overflow-hidden group px-12 py-5 rounded-full border border-brand-brown text-brand-brown hover:text-white transition-colors duration-500">
-            <span className="absolute inset-0 bg-brand-brown translate-y-full group-hover:translate-y-0 transition-transform duration-500"></span>
-            <span className="relative z-10 text-[11px] font-black uppercase tracking-[0.3em]">Load Next Volume</span>
-          </button>
-        </div>
+        {/* End of Collection Space */}
+        <div className="mt-32 border-t border-black/5"></div>
       </div>
     </div>
   );

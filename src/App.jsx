@@ -6,9 +6,12 @@ import About from './pages/About';
 import Catalog from './pages/Catalog';
 import Contact from './pages/Contact';
 
+import ScrollToTop from './components/ScrollToTop';
+
 function App() {
   return (
     <main className="relative min-h-screen bg-brand-light flex flex-col">
+      <ScrollToTop />
       <Navbar />
       <div className="flex-grow">
         <Routes>
