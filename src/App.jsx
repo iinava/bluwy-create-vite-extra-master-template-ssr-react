@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatsAppWidget from './components/WhatsAppWidget';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Preloader from './components/Preloader';
 import PageTransition from './components/PageTransition';
@@ -45,6 +46,7 @@ function App() {
           </PageTransition>
         </div>
         <Footer />
+        <WhatsAppWidget />
       </main>
     </>
   );
