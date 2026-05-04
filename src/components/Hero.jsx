@@ -11,7 +11,7 @@ const Hero = () => {
   const bgRef = useRef(null);
 
   useGSAP(() => {
-    // Entrance Animations
+    const mm = gsap.matchMedia();
     const tl = gsap.timeline({
       defaults: { ease: "power4.out", duration: 1.2 }
     });
@@ -22,20 +22,28 @@ const Hero = () => {
         y: 0,
         autoAlpha: 1,
         stagger: 0.15,
-        delay: 0.2
+        delay: 0.2,
+        force3D: true
       }
     );
 
-    // Parallax Effect
-    gsap.to(bgRef.current, {
-      yPercent: 15,
-      ease: "none",
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
+    // Parallax Effect - Only on Desktop
+    mm.add("(min-width: 1024px)", () => {
+      gsap.to(bgRef.current, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+    });
+
+    // Mobile specific: Ensure image is stable
+    mm.add("(max-width: 1023px)", () => {
+      gsap.set(bgRef.current, { yPercent: 0, force3D: true });
     });
   }, { scope: container });
 
