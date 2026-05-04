@@ -22,12 +22,14 @@ const Preloader = ({ onComplete }) => {
     gsap.set(".preloader-logo", { scale: 0.8, autoAlpha: 0 });
     gsap.set(pathRef.current, { strokeDasharray: 300, strokeDashoffset: 300 });
     gsap.set(".preloader-text", { y: 20, autoAlpha: 0 });
+    gsap.set(container.current, { force3D: true });
 
     // Animation sequence
     tl.to(".preloader-logo", {
       scale: 1,
       autoAlpha: 1,
-      duration: 1
+      duration: 1,
+      force3D: true
     })
     .to(pathRef.current, {
       strokeDashoffset: 0,
@@ -37,12 +39,14 @@ const Preloader = ({ onComplete }) => {
     .to(".preloader-text", {
       y: 0,
       autoAlpha: 1,
-      duration: 0.8
+      duration: 0.8,
+      force3D: true
     }, "-=0.8")
     .to(container.current, {
       yPercent: -100,
       duration: 1.2,
       ease: "expo.inOut",
+      force3D: true,
       delay: 0.5
     });
   }, { scope: container });
@@ -51,6 +55,7 @@ const Preloader = ({ onComplete }) => {
     <div 
       ref={container}
       className="fixed inset-0 z-[100] bg-brand-brown flex flex-col items-center justify-center pointer-events-none"
+      style={{ willChange: 'transform' }}
     >
       <div className="relative flex flex-col items-center">
         {/* Animated SVG Logo */}
