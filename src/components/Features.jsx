@@ -1,15 +1,62 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import * as LucideIcons from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 const { Star, MoveUpRight } = LucideIcons;
 
 const Features = () => {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    // Batched Reveals for Feature Cards
+    ScrollTrigger.batch(".feature-card", {
+      onEnter: (elements) => {
+        gsap.fromTo(elements, 
+          { autoAlpha: 0, y: 20, scale: 0.98 },
+          { 
+            autoAlpha: 1, 
+            y: 0, 
+            scale: 1,
+            stagger: 0.05, 
+            duration: 1, 
+            ease: "expo.out",
+            force3D: true,
+            overwrite: true 
+          }
+        );
+      },
+      start: "top 98%",
+      fastScrollEnd: true
+    });
+
+    gsap.fromTo(".feature-stat-item", 
+      { y: 20, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        stagger: 0.05,
+        duration: 1,
+        ease: "expo.out",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".feature-stats-row",
+          start: "top 95%",
+          fastScrollEnd: true
+        }
+      }
+    );
+  }, { scope: container });
+
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-24 bg-white font-sans overflow-hidden">
+    <section ref={container} className="py-24 px-6 md:px-12 lg:px-24 bg-white font-sans overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
           
           {/* Testimonial Card */}
-          <div className="lg:col-span-4 bg-white border border-black/5 rounded-[32px] p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-700">
+          <div className="feature-card lg:col-span-4 bg-white border border-black/5 rounded-[32px] p-10 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-700 gpu-accelerated">
             <div>
               <div className="flex gap-1 mb-8">
                 {[1, 2, 3, 4, 5].map((s) => (
@@ -39,7 +86,7 @@ const Features = () => {
           {/* Features Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 01 */}
-            <div className="group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px]">
+            <div className="feature-card group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px] gpu-accelerated">
               <img 
                 src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&q=80&w=800" 
                 alt="Meticulous detail" 
@@ -48,7 +95,7 @@ const Features = () => {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors"></div>
             </div>
 
-            <div className="bg-slate-50 rounded-[32px] p-10 flex flex-col justify-between border border-black/5 hover:bg-white hover:shadow-xl transition-all duration-700">
+            <div className="feature-card bg-slate-50 rounded-[32px] p-10 flex flex-col justify-between border border-black/5 hover:bg-white hover:shadow-xl transition-all duration-700 gpu-accelerated">
               <div className="flex justify-between items-start">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">01</span>
                 <MoveUpRight size={16} className="text-slate-300" />
@@ -62,7 +109,7 @@ const Features = () => {
             </div>
 
             {/* Card 02 */}
-            <div className="bg-slate-50 rounded-[32px] p-10 flex flex-col justify-between border border-black/5 hover:bg-white hover:shadow-xl transition-all duration-700">
+            <div className="feature-card bg-slate-50 rounded-[32px] p-10 flex flex-col justify-between border border-black/5 hover:bg-white hover:shadow-xl transition-all duration-700 gpu-accelerated">
               <div className="flex justify-between items-start">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">02</span>
                 <MoveUpRight size={16} className="text-slate-300" />
@@ -75,7 +122,7 @@ const Features = () => {
               </div>
             </div>
 
-            <div className="group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px]">
+            <div className="feature-card group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px] gpu-accelerated">
               <img 
                 src="https://images.unsplash.com/photo-1551298370-9d3d53e40c81?auto=format&fit=crop&q=80&w=800" 
                 alt="Sustainable by Nature" 
@@ -87,20 +134,20 @@ const Features = () => {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-slate-100">
-          <div>
+        <div className="feature-stats-row grid grid-cols-2 md:grid-cols-4 gap-12 pt-12 border-t border-slate-100">
+          <div className="feature-stat-item">
             <div className="text-4xl font-black text-slate-900 mb-2">15+</div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Years of Experience</p>
           </div>
-          <div>
+          <div className="feature-stat-item">
             <div className="text-4xl font-black text-slate-900 mb-2">27+</div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Master Craftsmen</p>
           </div>
-          <div>
+          <div className="feature-stat-item">
             <div className="text-4xl font-black text-slate-900 mb-2">95%</div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Client satisfaction rate</p>
           </div>
-          <div>
+          <div className="feature-stat-item">
             <div className="text-4xl font-black text-slate-900 mb-2">50k+</div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Homes transformed globally</p>
           </div>

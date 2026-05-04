@@ -13,15 +13,17 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
     @apply bg-brand-light text-brand-brown font-body overflow-x-hidden;
     margin: 0;
     display: block;
+    -webkit-tap-highlight-color: transparent;
   }
 
   #root {
@@ -41,7 +43,9 @@
 
 @layer components {
   .nav-pill {
-    @apply bg-brand-light/90 backdrop-blur-md px-8 py-4 rounded-full border border-black/5 shadow-lg flex items-center justify-between;
+    @apply bg-brand-light/90 px-8 py-4 rounded-full border border-black/5 shadow-lg flex items-center justify-between;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .btn-primary {
@@ -142,3 +146,17 @@
 .delay-500 {
   animation-delay: 0.5s;
 }
+
+.gpu-accelerated {
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, opacity;
+}
+
+.gsap-reveal {
+  opacity: 0;
+  visibility: hidden;
+}

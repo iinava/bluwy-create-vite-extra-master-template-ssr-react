@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 const { ArrowUpRight } = LucideIcons;
 
 const ContactCTA = () => {
+  const container = useRef(null);
+
+  useGSAP(() => {
+    gsap.fromTo(".cta-reveal", 
+      { y: 20, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        stagger: 0.05,
+        duration: 1,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 95%",
+          fastScrollEnd: true
+        }
+      }
+    );
+  }, { scope: container });
+
   return (
-    <section className="relative h-[40vh] md:h-[50vh] flex items-center bg-brand-brown overflow-hidden">
-      {/* Ghost Text - Refined and Positioned Above */}
-      <div className="absolute top-12 left-6 md:left-24 select-none pointer-events-none opacity-20">
+    <section ref={container} className="relative h-[40vh] md:h-[50vh] flex items-center bg-brand-brown overflow-hidden">
+      {/* Ghost Text */}
+      <div className="cta-reveal absolute top-12 left-6 md:left-24 select-none pointer-events-none opacity-20">
         <span 
           className="text-4xl md:text-8xl font-black tracking-tighter uppercase leading-none"
           style={{ 
@@ -20,14 +45,14 @@ const ContactCTA = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 w-full relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-        <div className="space-y-2">
+        <div className="cta-reveal space-y-2">
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight">Let's talk.</h2>
           <p className="text-4xl md:text-6xl font-bold text-white tracking-tight">Have a project in mind?</p>
         </div>
 
         <Link 
           to="/contact"
-          className="group bg-brand-gold hover:bg-white text-brand-brown px-8 py-4 rounded-full flex items-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 text-center"
+          className="cta-reveal group bg-brand-gold hover:bg-white text-brand-brown px-8 py-4 rounded-full flex items-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 text-center"
         >
           <span className="font-bold uppercase tracking-widest text-xs">Contact Us Now</span>
           <div className="w-8 h-8 rounded-full bg-brand-brown text-white flex items-center justify-center transition-transform group-hover:rotate-45">
@@ -35,8 +60,6 @@ const ContactCTA = () => {
           </div>
         </Link>
       </div>
-
-   
     </section>
   );
 };

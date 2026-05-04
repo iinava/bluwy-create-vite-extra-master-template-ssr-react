@@ -1,35 +1,73 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Hero = () => {
+  const container = useRef(null);
+  const bgRef = useRef(null);
+
+  useGSAP(() => {
+    // Entrance Animations
+    const tl = gsap.timeline({
+      defaults: { ease: "power4.out", duration: 1.2 }
+    });
+
+    tl.fromTo(".reveal-item", 
+      { y: 40, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        stagger: 0.15,
+        delay: 0.2
+      }
+    );
+
+    // Parallax Effect
+    gsap.to(bgRef.current, {
+      yPercent: 15,
+      ease: "none",
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true
+      }
+    });
+  }, { scope: container });
+
   return (
-    <section className="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-24 md:pt-32 pb-24 px-6 lg:px-16 bg-brand-brown">
+    <section ref={container} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-32 md:pt-40 pb-24 px-6 lg:px-16 bg-brand-brown">
       {/* Background Image with Layered Depth */}
       <div className="absolute inset-0 z-0">
         <img
-          // src="https://framerusercontent.com/images/5QnfevBJUXR78G2MuNi3Lz3QVv4.png?width=1456&height=816"  budha
-          // src="./pin.jpg"  pintrest
-          // src="https://framerusercontent.com/images/saxCf2i4lxd1XN4NFQTzPi5sA.jpg?scale-down-to=2048&width=3000&height=2000" light sofa
-          src="https://framerusercontent.com/images/mHXkmW0Jfupllqyy8XPFTDe0k.jpg?scale-down-to=2048&width=5472&height=3648" dark sofa
+          ref={bgRef}
+          src="https://framerusercontent.com/images/mHXkmW0Jfupllqyy8XPFTDe0k.jpg?scale-down-to=1024&width=2048&height=1366"
           alt="Luxury furniture showroom showing artisanal wooden pieces"
-          className="w-full h-full object-cover scale-105 animate-slow-zoom"
+          className="w-full h-full object-cover scale-110"
+          loading="eager"
+          decoding="async"
         />
-        {/* Brand Brown Overlay - Left to Right */}
+        {/* Brand Brown Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/95 via-brand-brown/80 to-transparent z-10"></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7 space-y-10 md:space-y-14">
-          {/* Social Proof - Optically Aligned */}
-          <div className="flex items-center space-x-5 animate-fade-in-up">
+          
+          {/* Social Proof */}
+          <div className="reveal-item flex items-center space-x-5">
             <div className="flex -space-x-3">
               {[
                 "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop",
                 "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop",
                 "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop"
               ].map((src, i) => (
-                <div key={i} className="w-11 h-11 rounded-full border-2 border-brand-light/20 overflow-hidden shadow-2xl transition-transform hover:scale-110 hover:z-30 cursor-pointer">
+                <div key={i} className="w-11 h-11 rounded-full border-2 border-brand-light/20 overflow-hidden shadow-2xl transition-transform hover:scale-110 hover:z-30 cursor-pointer establishment-card">
                   <img src={src} alt="Satisfied client avatar" className="w-full h-full object-cover" />
                 </div>
               ))}
@@ -42,17 +80,17 @@ const Hero = () => {
           </div>
 
           <div className="space-y-8">
-            <h1 className="text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-[-0.04em] uppercase animate-fade-in-up delay-100 text-wrap-balance">
+            <h1 className="reveal-item text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-[-0.04em] uppercase text-wrap-balance">
               Refined <br className="hidden md:block" />
               <span className="text-white/40">Living</span> Spaces
             </h1>
             
-            <p className="text-brand-light/80 text-base md:text-xl max-w-xl font-medium leading-relaxed animate-fade-in-up delay-200 text-wrap-pretty">
+            <p className="reveal-item text-brand-light/80 text-base md:text-xl max-w-xl font-medium leading-relaxed text-wrap-pretty">
               Experience the pinnacle of furniture craftsmanship. We blend heritage techniques with modern aesthetics to create homes that tell a story.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 pt-4 animate-fade-in-up delay-300">
+          <div className="reveal-item flex flex-wrap items-center gap-6 pt-4">
             <Link 
               to="/catalog"
               className="group relative bg-white text-brand-brown px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] overflow-hidden transition-all hover:bg-yellow-400 hover:text-brand-brown active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center"
@@ -75,10 +113,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Decorative Branding Element */}
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-brown/20 rounded-full blur-[120px] pointer-events-none"></div>
-      
-   
     </section>
   );
 };
