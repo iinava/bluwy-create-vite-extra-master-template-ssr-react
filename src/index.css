@@ -159,4 +159,44 @@
 .gsap-reveal {
   opacity: 0;
   visibility: hidden;
-}
+}
+
+/* Preloader Animations - Optimized for WebKit/Safari */
+@keyframes preloaderLogo {
+  0% { opacity: 0; transform: scale(0.8) translate3d(0,0,0); }
+  100% { opacity: 1; transform: scale(1) translate3d(0,0,0); }
+}
+
+@keyframes preloaderStroke {
+  0% { stroke-dashoffset: 300; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes preloaderText {
+  0% { opacity: 0; transform: translateY(20px) translate3d(0,0,0); }
+  100% { opacity: 1; transform: translateY(0) translate3d(0,0,0); }
+}
+
+@keyframes preloaderExit {
+  0% { transform: translateY(0) translate3d(0,0,0); }
+  100% { transform: translateY(-100%) translate3d(0,0,0); }
+}
+
+.animate-preloader-logo {
+  animation: preloaderLogo 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-preloader-stroke {
+  animation: preloaderStroke 1.5s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.animate-preloader-text {
+  animation: preloaderText 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.7s;
+}
+
+.animate-preloader-exit {
+  animation: preloaderExit 1.2s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation-delay: 2.8s;
+}
