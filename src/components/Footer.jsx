@@ -46,12 +46,18 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {[
-                { Icon: Facebook, name: 'Facebook' },
-                { Icon: Instagram, name: 'Instagram' },
-                { Icon: Twitter, name: 'Twitter' },
-                { Icon: Youtube, name: 'Youtube' }
-              ].map(({ Icon, name }, i) => (
-                <a key={i} href="#" aria-label={name} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-brown transition-all duration-500">
+                { Icon: Facebook, name: 'Facebook', id: 'facebook' },
+                { Icon: Instagram, name: 'Instagram', id: 'instagram' },
+                { Icon: Twitter, name: 'Twitter', id: 'twitter' },
+                { Icon: Youtube, name: 'Youtube', id: 'youtube' }
+              ].map(({ Icon, name, id }, i) => (
+                <a 
+                  key={i} 
+                  href={`#${id}`} 
+                  onClick={(e) => e.preventDefault()}
+                  aria-label={name} 
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-gold hover:text-brand-brown transition-all duration-500"
+                >
                   <Icon size={18} />
                 </a>
               ))}
@@ -78,9 +84,9 @@ const Footer = () => {
             ©2024 <span className="text-brand-gold">Aiswarya Furniture</span>. All Rights Reserved.
           </p>
           <div className="flex space-x-8 text-xs text-brand-light/40 font-medium">
-            <a href="#" className="hover:text-brand-gold transition-colors">Terms and Conditions</a>
+            <a href="#terms" onClick={(e) => e.preventDefault()} className="hover:text-brand-gold transition-colors">Terms and Conditions</a>
             <span className="opacity-20">|</span>
-            <a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a>
+            <a href="#privacy" onClick={(e) => e.preventDefault()} className="hover:text-brand-gold transition-colors">Privacy Policy</a>
           </div>
         </div>
       </div>

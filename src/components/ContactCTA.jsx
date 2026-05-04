@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
 const { ArrowUpRight } = LucideIcons;
 
@@ -24,12 +25,15 @@ const ContactCTA = () => {
           <p className="text-4xl md:text-6xl font-bold text-white tracking-tight">Have a project in mind?</p>
         </div>
 
-        <button className="group bg-brand-gold hover:bg-white text-brand-brown px-8 py-4 rounded-full flex items-center gap-4 transition-all duration-500 shadow-2xl active:scale-95">
+        <Link 
+          to="/contact"
+          className="group bg-brand-gold hover:bg-white text-brand-brown px-8 py-4 rounded-full flex items-center gap-4 transition-all duration-500 shadow-2xl active:scale-95 text-center"
+        >
           <span className="font-bold uppercase tracking-widest text-xs">Contact Us Now</span>
           <div className="w-8 h-8 rounded-full bg-brand-brown text-white flex items-center justify-center transition-transform group-hover:rotate-45">
             <ArrowUpRight size={16} />
           </div>
-        </button>
+        </Link>
       </div>
 
    

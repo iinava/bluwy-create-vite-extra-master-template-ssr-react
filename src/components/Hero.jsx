@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -52,10 +53,16 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-6 pt-4 animate-fade-in-up delay-300">
-            <button className="group relative bg-white text-brand-brown px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] overflow-hidden transition-all hover:bg-yellow-400 hover:text-brand-brown active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+            <Link 
+              to="/catalog"
+              className="group relative bg-white text-brand-brown px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] overflow-hidden transition-all hover:bg-yellow-400 hover:text-brand-brown active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center"
+            >
               <span className="relative z-10">Shop Collection</span>
-            </button>
-            <button className="group flex items-center space-x-3 text-white transition-all hover:text-yellow-400 active:scale-95">
+            </Link>
+            <Link 
+              to="/about"
+              className="group flex items-center space-x-3 text-white transition-all hover:text-yellow-400 active:scale-95"
+            >
               <span className="text-xs font-black uppercase tracking-[0.2em]">Our Legacy</span>
               <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-yellow-400 transition-colors">
                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -63,7 +70,7 @@ const Hero = () => {
                     <polyline points="7 7 17 7 17 17"></polyline>
                  </svg>
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

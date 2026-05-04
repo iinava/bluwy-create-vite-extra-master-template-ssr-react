@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import * as LucideIcons from 'lucide-react';
 
 const Facebook = ({ size = 24 }) => (
@@ -8,9 +9,22 @@ const Instagram = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
 );
 
-const { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown } = LucideIcons;
+const { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle2 } = LucideIcons;
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1500);
+  };
+
   return (
     <div className="bg-white min-h-screen pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
@@ -91,10 +105,10 @@ const Contact = () => {
 
             {/* Social Links */}
             <div className="pt-8 border-t border-slate-100 flex gap-3">
-              <a href="#" className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-brand-brown hover:text-brand-brown transition-all">
+              <a href="#instagram" onClick={(e) => e.preventDefault()} className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-brand-brown hover:text-brand-brown transition-all">
                 <Instagram size={16} />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-brand-brown hover:text-brand-brown transition-all">
+              <a href="#facebook" onClick={(e) => e.preventDefault()} className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:border-brand-brown hover:text-brand-brown transition-all">
                 <Facebook size={16} />
               </a>
             </div>
@@ -102,69 +116,90 @@ const Contact = () => {
 
           {/* Contact Form (Right) */}
           <div className="lg:col-span-8">
-            <div className="bg-slate-50 p-6 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
-                    <input
-                      type="text"
-                      placeholder="Enter your name"
-                      className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
-                    />
+            <div className="bg-slate-50 p-6 md:p-10 rounded-[2.5rem] border border-slate-100 shadow-sm min-h-[400px] flex flex-col justify-center">
+              {submitted ? (
+                <div className="text-center space-y-6 animate-fade-in-up">
+                  <div className="w-20 h-20 bg-brand-brown text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
+                    <CheckCircle2 size={40} />
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
-                    <input
-                      type="tel"
-                      placeholder="+91 00000 00000"
-                      className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
-                    />
-                  </div>
+                  <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Message Sent!</h2>
+                  <p className="text-slate-500 max-w-sm mx-auto">
+                    Thank you for reaching out. Our design consultants will get back to you within 24 hours.
+                  </p>
+                  <button 
+                    onClick={() => setSubmitted(false)}
+                    className="text-brand-brown font-bold uppercase tracking-widest text-xs hover:text-black transition-colors"
+                  >
+                    Send another message
+                  </button>
                 </div>
-
-                <div className="space-y-1.5 relative">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Inquiry Subject</label>
-                  <div className="relative">
-                    <select className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all appearance-none text-sm cursor-pointer pr-12">
-                      <option>Product Inquiry</option>
-                      <option>Showroom Visit</option>
-                      <option>Custom Design Request</option>
-                      <option>General Feedback</option>
-                    </select>
-                    <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                      <ChevronDown size={16} />
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
+                      <input
+                        required
+                        type="text"
+                        placeholder="Enter your name"
+                        className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+                      <input
+                        required
+                        type="tel"
+                        placeholder="+91 00000 00000"
+                        className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
+                      />
                     </div>
                   </div>
-                </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Message</label>
-                  <textarea
-                    rows="4"
-                    placeholder="Tell us about your requirements..."
-                    className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all resize-none text-sm"
-                  ></textarea>
-                </div>
-
-                <button className="group flex items-center gap-5 bg-brand-brown text-white pl-8 pr-3 py-3 rounded-full text-xs font-black uppercase tracking-[0.2em] hover:bg-black transition-all shadow-lg active:scale-95">
-                  <span>Send Inquiry</span>
-                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:rotate-45">
-                    <ArrowRight size={16} />
+                  <div className="space-y-1.5 relative">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Inquiry Subject</label>
+                    <div className="relative">
+                      <select className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all appearance-none text-sm cursor-pointer pr-12">
+                        <option>Product Inquiry</option>
+                        <option>Showroom Visit</option>
+                        <option>Custom Design Request</option>
+                        <option>General Feedback</option>
+                      </select>
+                      <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                        <ChevronDown size={16} />
+                      </div>
+                    </div>
                   </div>
-                </button>
-              </form>
+
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Your Message</label>
+                    <textarea
+                      required
+                      rows="4"
+                      placeholder="Tell us about your requirements..."
+                      className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all resize-none text-sm"
+                    ></textarea>
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`group flex items-center gap-5 bg-brand-brown text-white pl-8 pr-3 py-3 rounded-full text-xs font-black uppercase tracking-[0.2em] transition-all shadow-lg active:scale-95 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-black'}`}
+                  >
+                    <span>{isSubmitting ? 'Sending...' : 'Send Inquiry'}</span>
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:rotate-45">
+                      <ArrowRight size={16} />
+                    </div>
+                  </button>
+                </form>
+              )}
             </div>
           </div>
-
-
-
         </div>
-
       </div>
 
-        {/* Map Section - Refined Rounded Rectangle */}
-        <div className="mt-24 animate-fade-in-up">
+      {/* Map Section - Refined Rounded Rectangle */}
+      <div className="mt-24 animate-fade-in-up">
           <div className="mb-10 text-center">
             <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold mb-3 block">Our Location</span>
             <h2 className="text-3xl md:text-4xl font-black text-brand-brown leading-none uppercase tracking-tighter">Visit our Showroom</h2>
