@@ -1,5 +1,11 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { Filter, ArrowUpRight } from 'lucide-react';
+import { Filter, MessageCircle } from 'lucide-react';
+
+const whatsappNumber = "+917025032459";
+const getWhatsappLink = (productName) => {
+  const message = `hey aishwaryaa furniture can i get more infor on ${productName}`;
+  return `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
+};
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -11,56 +17,56 @@ const products = [
     id: 1,
     name: "Aurelian Throne",
     category: "Armchairs",
-    price: "$4,200",
+    price: "₹4,200",
     image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 2,
     name: "Midnight Obsidian Table",
     category: "Dining",
-    price: "$12,800",
+    price: "₹12,800",
     image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 3,
     name: "Ethereal Cloud Sofa",
     category: "Living",
-    price: "$8,500",
+    price: "₹8,500",
     image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 4,
     name: "Marble Monolith Sideboard",
     category: "Storage",
-    price: "$6,400",
+    price: "₹6,400",
     image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 5,
     name: "Venetian Velvet Ottoman",
     category: "Accessories",
-    price: "$1,800",
+    price: "₹1,800",
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 6,
     name: "Gilded Oak Credenza",
     category: "Storage",
-    price: "$9,200",
+    price: "₹9,200",
     image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 7,
     name: "Zenith Pendant Light",
     category: "Lighting",
-    price: "$2,100",
+    price: "₹2,100",
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&q=70&w=800&h=1000&fit=crop"
   },
   {
     id: 8,
     name: "Onyx Minimalist Bed",
     category: "Bedroom",
-    price: "$7,800",
+    price: "₹7,800",
     image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&q=70&w=800&h=1000&fit=crop"
   }
 ];
@@ -238,22 +244,6 @@ const Catalog = () => {
                   decoding="async"
                   className="w-full h-full object-cover scale-110"
                 />
-                
-                {/* Simplified Overlay - Removed multiple backdrop-blurs for iOS performance */}
-                <div className="absolute top-4 right-4 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
-                  <button 
-                    className="w-10 h-10 rounded-full bg-white text-brand-brown flex items-center justify-center shadow-lg hover:bg-brand-gold hover:text-white transition-all"
-                    style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)' }}
-                  >
-                    <ArrowUpRight size={16} />
-                  </button>
-                </div>
-
-                <div className="absolute bottom-4 left-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <span className="px-3 py-1.5 bg-brand-brown text-white/90 rounded-full text-[9px] font-black uppercase tracking-widest shadow-sm">
-                    Quick View
-                  </span>
-                </div>
               </div>
 
               <div className="px-1">
@@ -267,6 +257,20 @@ const Catalog = () => {
                   <span className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-taupe/40">{product.category}</span>
                   <div className="w-1 h-1 rounded-full bg-brand-gold/40"></div>
                   <span className="text-[9px] font-bold text-brand-taupe/30 uppercase">Aiswarya Original</span>
+                </div>
+
+                {/* Enquire Button */}
+                <div className="mt-6">
+                  <a 
+                    href={getWhatsappLink(product.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/btn relative flex items-center justify-center space-x-3 w-full py-4 bg-brand-brown text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:bg-brand-gold hover:shadow-[0_10px_30px_rgba(197,160,89,0.3)]"
+                  >
+                    <MessageCircle size={14} className="group-hover/btn:scale-110 transition-transform duration-500" />
+                    <span className="relative z-10">Enquire Now</span>
+                    <div className="absolute inset-0 bg-white/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+                  </a>
                 </div>
               </div>
             </div>
