@@ -12,17 +12,41 @@ const Instagram = ({ size = 24 }) => (
 const { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle2 } = LucideIcons;
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    subject: 'Product Inquiry',
+    message: ''
+  });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
+    
+    // Construct WhatsApp Message
+    const whatsappNumber = "917025032459";
+    const text = `*New Inquiry from Aiswarya Furniture Website*%0A%0A` +
+                 `*Name:* ${formData.name}%0A` +
+                 `*Phone:* ${formData.phone}%0A` +
+                 `*Subject:* ${formData.subject}%0A` +
+                 `*Message:* ${formData.message}`;
+    
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${text}`;
+
+    // Redirect to WhatsApp
+    window.open(whatsappUrl, '_blank');
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 1500);
+    }, 1000);
   };
 
   return (
@@ -68,7 +92,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Call Us</p>
-                  <p className="text-base font-bold text-slate-900 tracking-tight">+91 94470 12345</p>
+                  <p className="text-base font-bold text-slate-900 tracking-tight">+91 70250 32459</p>
                 </div>
               </div>
 
@@ -141,6 +165,9 @@ const Contact = () => {
                       <input
                         required
                         type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         placeholder="Enter your name"
                         className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
                       />
@@ -150,6 +177,9 @@ const Contact = () => {
                       <input
                         required
                         type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         placeholder="+91 00000 00000"
                         className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all text-sm"
                       />
@@ -159,7 +189,12 @@ const Contact = () => {
                   <div className="space-y-1.5 relative">
                     <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Inquiry Subject</label>
                     <div className="relative">
-                      <select className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all appearance-none text-sm cursor-pointer pr-12">
+                      <select 
+                        name="subject"
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all appearance-none text-sm cursor-pointer pr-12"
+                      >
                         <option>Product Inquiry</option>
                         <option>Showroom Visit</option>
                         <option>Custom Design Request</option>
@@ -176,6 +211,9 @@ const Contact = () => {
                     <textarea
                       required
                       rows="4"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="Tell us about your requirements..."
                       className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all resize-none text-sm"
                     ></textarea>
