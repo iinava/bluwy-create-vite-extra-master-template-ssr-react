@@ -28,18 +28,12 @@ const Footer = () => {
           
           {/* Brand & Description */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 md:w-11 md:h-11 relative overflow-hidden transition-all duration-500 group-hover:scale-105">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <rect width="100" height="100" rx="22" className="fill-brand-gold" />
-                  <path 
-                    d="M28 72V28H72V72M28 50H72" 
-                    className="stroke-brand-brown stroke-[14] fill-none" 
-                    strokeLinecap="square"
-                  />
-                </svg>
-              </div>
-              <span className="text-2xl font-black tracking-tighter uppercase text-white">HANDLY</span>
+            <div className="flex items-center group">
+              <img 
+                src="/logo.png" 
+                alt="Handly Logo" 
+                className="h-12 md:h-14 w-auto object-contain transition-all duration-500 group-hover:scale-105"
+              />
             </div>
             <p className="text-brand-light/60 leading-relaxed text-sm max-w-sm">
               The artisanal furniture agency's creative solutions enhance both aesthetics and functionality in every project undertaken. Our heritage techniques meet modern luxury.

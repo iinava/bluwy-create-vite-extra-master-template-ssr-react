@@ -45,18 +45,12 @@ const Navbar = () => {
       >
 
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3 group cursor-pointer">
-          <div className="w-10 h-10 md:w-11 md:h-11 relative overflow-hidden transition-all duration-500 group-hover:scale-105 active:scale-90">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <rect width="100" height="100" rx="22" className="fill-brand-brown" />
-              <path 
-                d="M28 72V28H72V72M28 50H72" 
-                className="stroke-white stroke-[14] fill-none" 
-                strokeLinecap="square"
-              />
-            </svg>
-          </div>
-          <span className="text-xl md:text-2xl font-black tracking-tighter uppercase hidden sm:block text-brand-brown">Handly</span>
+        <Link to="/" className="flex items-center group cursor-pointer">
+          <img 
+            src="/logo.png" 
+            alt="Handly Logo" 
+            className="h-9 md:h-11 w-auto object-contain transition-all duration-500 group-hover:scale-105 active:scale-90 invert"
+          />
         </Link>
 
         {/* Desktop Links */}
