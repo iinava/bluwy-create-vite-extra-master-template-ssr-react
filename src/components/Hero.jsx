@@ -49,17 +49,25 @@ const Hero = () => {
 
   return (
     <section ref={container} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-32 md:pt-40 pb-24 px-6 lg:px-16 bg-brand-brown">
-      {/* Background Image with Layered Depth */}
+      {/* Background Image Carousel - CSS Animated */}
       <div className="absolute inset-0 z-0">
-        <img
-          ref={bgRef}
-          src="https://framerusercontent.com/images/mHXkmW0Jfupllqyy8XPFTDe0k.jpg?scale-down-to=1024&width=2048&height=1366"
-          alt="Luxury furniture showroom showing artisanal wooden pieces"
-          className="w-full h-full object-cover scale-110"
-          loading="eager"
-          decoding="async"
-        />
-        {/* Brand Brown Overlay */}
+        <div ref={bgRef} className="absolute inset-0">
+          <img
+            src="/hero/handlyflower.jpg"
+            alt="Luxury furniture showroom showing artisanal wooden pieces"
+            className="hero-bg-item hero-bg-1"
+            loading="eager"
+            decoding="async"
+          />
+          <img
+            src="/hero/handlytwo.jpg"
+            alt="Refined living space with premium furniture"
+            className="hero-bg-item hero-bg-2"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        {/* Brand Brown Overlay - Static relative to hero */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-brown/95 via-brand-brown/80 to-transparent z-10"></div>
       </div>
 
