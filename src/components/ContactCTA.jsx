@@ -4,6 +4,8 @@ import * as LucideIcons from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Flower from './Flower';
+import Star from './Star';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 const { ArrowUpRight } = LucideIcons;
@@ -31,6 +33,12 @@ const ContactCTA = () => {
 
   return (
     <section ref={container} className="relative h-[40vh] md:h-[50vh] flex items-center bg-brand-brown overflow-hidden">
+      {/* Flower accents */}
+      <Flower size={220} speed={30} opacity="0.1" className="absolute right-4 top-4" />
+      <Flower size={110} speed={16} opacity="0.08" className="absolute left-1/3 bottom-4 hidden lg:block" />
+      {/* Star accent - spins counter-clockwise for contrast */}
+      <Star size={100} speed={12} opacity="0.1" reverse className="absolute left-8 top-4" />
+
       {/* Ghost Text */}
       <div className="cta-reveal absolute top-12 left-6 md:left-24 select-none pointer-events-none opacity-20">
         <span 

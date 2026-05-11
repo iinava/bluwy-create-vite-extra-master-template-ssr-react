@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { type: 'bot', text: 'Hi! Welcome to Aiswarya Furniture 👋 How can we help you today?' }
+    { type: 'bot', text: 'Hi! Welcome to Handly Furniture 👋 How can we help you today?' }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef(null);
   
-  const whatsappNumber = "917025032459";
+  const whatsappNumber = "917034026662";
 
   const chatFlow = [
     { 
@@ -62,7 +62,7 @@ const WhatsAppWidget = () => {
     }, 1000);
   };
 
-  const handleWhatsApp = (msg = "Hi Aiswarya Furniture, I have an inquiry.") => {
+  const handleWhatsApp = (msg = "Hi Handly Furniture, I have an inquiry.") => {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
   };
@@ -83,7 +83,7 @@ const WhatsAppWidget = () => {
               AF
             </div>
             <div>
-              <h3 className="font-bold text-xs sm:text-sm tracking-tight">Aiswarya Assistant</h3>
+              <h3 className="font-bold text-xs sm:text-sm tracking-tight">Handly Assistant</h3>
               <div className="flex items-center space-x-1.5">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
                 <span className="text-[8px] sm:text-[9px] uppercase tracking-widest opacity-80 font-black">Online</span>

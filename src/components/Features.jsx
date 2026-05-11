@@ -64,7 +64,7 @@ const Features = () => {
                 ))}
               </div>
               <p className="text-xl md:text-2xl font-medium text-slate-900 leading-snug">
-                "We needed a bespoke curation for our estate, and Aiswarya delivered beyond our expectations. From the material selection to the final finish, everything feels cohesive and masterfully crafted."
+                "We needed a bespoke curation for our estate, and Handly delivered beyond our expectations. From the material selection to the final finish, everything feels cohesive and masterfully crafted."
               </p>
             </div>
             
@@ -88,7 +88,7 @@ const Features = () => {
             {/* Card 01 */}
             <div className="feature-card group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px] gpu-accelerated">
               <img 
-                src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&q=80&w=800" 
+                src="/handlychairs/15.png" 
                 alt="Meticulous detail" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -124,7 +124,7 @@ const Features = () => {
 
             <div className="feature-card group relative rounded-[32px] overflow-hidden bg-slate-50 h-[300px] gpu-accelerated">
               <img 
-                src="https://images.unsplash.com/photo-1551298370-9d3d53e40c81?auto=format&fit=crop&q=80&w=800" 
+                src="/handlychairs/16.png" 
                 alt="Sustainable by Nature" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />

@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Flower from './Flower';
+import Star from './Star';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -39,8 +41,10 @@ export const DetailedStats = () => {
   ];
 
   return (
-    <section className="bg-[#fcfaf8] py-16 md:py-24 border-y border-black/5">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="bg-[#fcfaf8] py-16 md:py-24 border-y border-black/5 relative overflow-hidden">
+      <Star size={70} speed={20} opacity="0.08" className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <Flower size={80} speed={25} opacity="0.08" className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-x-8 items-center justify-center">
           {stats.map((stat, idx) => (
             <div key={idx} className="text-center px-2">
