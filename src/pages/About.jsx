@@ -4,55 +4,68 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import ContactCTA from '../components/ContactCTA';
-import { AboutWhyUs } from '../components/Whyus';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-const { Users, Target, BarChart3, Clock, Trophy, Quote, Star } = LucideIcons;
+const { Users, Target, BarChart3, Clock, Trophy, Quote, Star, Check, Box, Home, Truck, Layers, Wifi } = LucideIcons;
 
 const About = () => {
   const container = useRef(null);
 
-  const founders = [
+  const offerings = [
     {
-      name: 'Vikram Handly',
-      role: 'Master Craftsman & Visionary',
-      bio: 'With over 40 years of experience in traditional woodworking, Vikram founded Handly with a vision to blend heritage techniques with modern luxury.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800',
-      signature: 'V. Handly'
+      title: "Furniture Type",
+      items: ["Designer Furniture", "Modular Furniture", "Kids Furniture", "Antique", "Imported"],
+      span: "lg:col-span-2",
+      bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
+      titleColor: "text-brand-gold",
+      divider: "border-white/10",
+      itemText: "text-white/80",
+      cols: "grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6",
+      icon: <Box className="absolute -bottom-6 -right-6 w-40 h-40 text-white/[0.03] rotate-12 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6" />
     },
     {
-      name: 'Ananya Sharma',
-      role: 'Chief Design Officer',
-      bio: 'An alumni of Milan Design Institute, Ananya brings a contemporary editorial aesthetic to every piece we create.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800',
-      signature: 'A. Sharma'
-    }
-  ];
-
-  const services = [
-    {
-      title: "Bespoke Crafting",
-      desc: "Individually handcrafted pieces tailored to your specific vision and architectural space.",
-      icon: <Quote size={20} className="text-brand-gold" />,
-      stat: "1 of 1"
+      title: "Usage",
+      items: ["Living Room", "Outdoor Furniture", "Modular Kitchen", "Office", "School", "Bedroom"],
+      span: "lg:col-span-1",
+      bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
+      titleColor: "text-brand-gold",
+      divider: "border-white/10",
+      itemText: "text-white/80",
+      cols: "grid-cols-1 gap-y-3",
+      icon: <Home className="absolute -bottom-6 -right-6 w-32 h-32 text-white/[0.03] -rotate-12 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6" />
     },
     {
-      title: "Interior Curation",
-      desc: "Expert design consultation to harmonize your furniture with your home's unique character.",
-      icon: <Target size={20} className="text-brand-gold" />,
-      stat: "Personalized"
+      title: "Services",
+      items: ["Same Day Delivery", "Delivery Available", "In Store Collect"],
+      span: "lg:col-span-1",
+      bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
+      titleColor: "text-brand-gold",
+      divider: "border-white/10",
+      itemText: "text-white/80",
+      cols: "grid-cols-1 gap-y-3",
+      icon: <Truck className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:translate-x-4" />
     },
     {
-      title: "Material Sourcing",
-      desc: "Meticulous selection of the world's finest, sustainably harvested hardwoods and veneers.",
-      icon: <Trophy size={20} className="text-brand-gold" />,
-      stat: "Sustainably Sourced"
+      title: "Material",
+      items: ["Steel", "Plastic"],
+      span: "lg:col-span-1",
+      bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
+      titleColor: "text-brand-gold",
+      divider: "border-white/10",
+      itemText: "text-white/80",
+      cols: "grid-cols-1 gap-y-3",
+      icon: <Layers className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:-translate-y-4" />
     },
     {
-      title: "Global Delivery",
-      desc: "White-glove logistics ensuring your masterpieces arrive in perfect condition, anywhere.",
-      icon: <BarChart3 size={20} className="text-brand-gold" />,
-      stat: "Worldwide"
+      title: "Amenities",
+      items: ["WiFi"],
+      span: "lg:col-span-1",
+      bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
+      titleColor: "text-brand-gold",
+      divider: "border-white/10",
+      itemText: "text-white/80",
+      cols: "grid-cols-1 gap-y-3",
+      icon: <Wifi className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:scale-110" />
     }
   ];
 
@@ -131,22 +144,6 @@ const About = () => {
       fastScrollEnd: true
     });
 
-    // Founder Reveal
-    gsap.fromTo(".founder-card",
-      { autoAlpha: 0, x: (i) => i === 0 ? -50 : 50 },
-      {
-        autoAlpha: 1,
-        x: 0,
-        duration: 1.5,
-        ease: "power4.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".founders-trigger",
-          start: "top 80%",
-          fastScrollEnd: true
-        }
-      }
-    );
 
   }, { scope: container });
 
@@ -235,46 +232,49 @@ const About = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="max-w-7xl mx-auto px-6 mb-40">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      {/* Offerings Section */}
+      <section className="max-w-7xl mx-auto px-6 mb-32">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-8">
           <div className="reveal-about">
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold mb-4 block">Excellence in Service</span>
-            <h2 className="text-4xl lg:text-6xl font-black text-brand-brown leading-none uppercase tracking-tighter">OUR SPECIALIZED <br /> SERVICES</h2>
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-gold mb-4 block">What We Offer</span>
+            <h2 className="text-3xl lg:text-5xl font-black text-brand-brown leading-none uppercase tracking-tighter">OUR RANGE & <br /> CAPABILITIES</h2>
           </div>
           <div className="reveal-about lg:max-w-md text-brand-taupe/70">
-            <p className="text-lg leading-relaxed">We provide end-to-end artisanal solutions, from initial sketch to final installation, ensuring every detail exceeds expectations.</p>
+            <p className="text-base leading-relaxed">Discover our comprehensive range of furniture types, materials, and dedicated services designed to meet your every need.</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((item, idx) => (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 items-start">
+          {offerings.map((category, idx) => (
             <div
               key={idx}
-              className="about-card group p-10 rounded-[40px] bg-white border border-black/5 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] cursor-default gpu-accelerated"
+              className={`about-card group relative overflow-hidden p-6 lg:p-8 rounded-[2rem] ${category.bg} ${category.span} cursor-default gpu-accelerated h-full`}
               style={{
                 transformStyle: 'preserve-3d',
                 transformPerspective: '1200px',
                 WebkitBackfaceVisibility: 'hidden',
                 backfaceVisibility: 'hidden',
-                transition: 'background-color 0.5s, border-color 0.5s, box-shadow 0.5s'
+                transition: 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
               }}
             >
-              <div className="mb-10 w-14 h-14 rounded-2xl bg-brand-light flex items-center justify-center shadow-sm group-hover:bg-brand-brown group-hover:text-white transition-all duration-700" style={{ transform: 'translateZ(25px)' }}>
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-black text-brand-brown mb-3 uppercase tracking-tight" style={{ transform: 'translateZ(15px)' }}>{item.title}</h3>
-              <p className="text-brand-taupe/60 leading-relaxed text-xs mb-6" style={{ transform: 'translateZ(10px)' }}>{item.desc}</p>
-              <div className="pt-6 border-t border-black/5" style={{ transform: 'translateZ(12px)' }}>
-                <span className="text-[10px] font-black uppercase tracking-widest text-brand-gold">{item.stat}</span>
+              {category.icon}
+              <div className="relative z-10">
+                <h3 className={`text-xl font-black ${category.titleColor} mb-5 uppercase tracking-tight border-b ${category.divider} pb-3`} style={{ transform: 'translateZ(15px)' }}>{category.title}</h3>
+                <ul className={`grid ${category.cols} w-full`} style={{ transform: 'translateZ(10px)' }}>
+                  {category.items.map((item, i) => (
+                    <li key={i} className="flex items-center space-x-3 group-hover:translate-x-1 transition-transform duration-500 ease-out" style={{ transitionDelay: `${i * 40}ms` }}>
+                      <div className="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center shrink-0 border border-brand-gold/20">
+                        <Check size={12} className="text-brand-gold" strokeWidth={3} />
+                      </div>
+                      <span className={`text-sm font-semibold tracking-tight ${category.itemText}`}>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           ))}
         </div>
       </section>
-
-      {/* Why Choose Us Section */}
-      <AboutWhyUs />
 
       {/* Global Contact CTA */}
       <ContactCTA />

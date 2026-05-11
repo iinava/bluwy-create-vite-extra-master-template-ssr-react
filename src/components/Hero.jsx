@@ -112,7 +112,7 @@ const Hero = () => {
               to="/catalog"
               className="group relative bg-white text-brand-brown px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] overflow-hidden transition-all hover:bg-yellow-400 hover:text-brand-brown active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center"
             >
-              <span className="relative z-10">Shop Collection</span>
+              <span className="relative z-10">Explore Collection</span>
             </Link>
             <Link
               to="/about"
