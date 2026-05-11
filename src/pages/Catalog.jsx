@@ -1,86 +1,34 @@
-import React, { useState, useMemo, useRef } from 'react';
-import { Filter, MessageCircle } from 'lucide-react';
-
-const whatsappNumber = "+917025032459";
-const getWhatsappLink = (productName) => {
-  const message = `hey aishwaryaa furniture can i get more infor on ${productName}`;
-  return `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent(message)}`;
-};
+import React, { useRef } from 'react';
+import { MessageCircle, Download } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const whatsappNumber = "+917025032459";
+const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent("Hi Handly Furniture, I'd like to enquire about your collection.")}`;
+
 const products = [
-  {
-    id: 1,
-    name: "Aurelian Throne",
-    category: "Armchairs",
-    price: "₹4,200",
-    image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 2,
-    name: "Midnight Obsidian Table",
-    category: "Dining",
-    price: "₹12,800",
-    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Ethereal Cloud Sofa",
-    category: "Living",
-    price: "₹8,500",
-    image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 4,
-    name: "Marble Monolith Sideboard",
-    category: "Storage",
-    price: "₹6,400",
-    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 5,
-    name: "Venetian Velvet Ottoman",
-    category: "Accessories",
-    price: "₹1,800",
-    image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 6,
-    name: "Gilded Oak Credenza",
-    category: "Storage",
-    price: "₹9,200",
-    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 7,
-    name: "Zenith Pendant Light",
-    category: "Lighting",
-    price: "₹2,100",
-    image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&q=70&w=800&h=1000&fit=crop"
-  },
-  {
-    id: 8,
-    name: "Onyx Minimalist Bed",
-    category: "Bedroom",
-    price: "₹7,800",
-    image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&q=70&w=800&h=1000&fit=crop"
-  }
+  { id: 1, image: "/handlychairs/5.png" },
+  { id: 2, image: "/handlychairs/6.png" },
+  { id: 3, image: "/handlychairs/7.png" },
+  { id: 4, image: "/handlychairs/8.png" },
+  { id: 5, image: "/handlychairs/9.png" },
+  { id: 6, image: "/handlychairs/20.png" },
+  { id: 7, image: "/handlychairs/21.png" },
+  { id: 8, image: "/handlychairs/22.png" },
 ];
 
-const categories = ["All", "Living", "Dining", "Storage", "Armchairs", "Bedroom", "Lighting"];
+const marbleProducts = [
+  { id: 101, image: "/marbles/arabestaco gold.png" },
+  { id: 102, image: "/marbles/marble2.png" },
+  { id: 103, image: "/marbles/marble3.png" },
+  { id: 104, image: "/marbles/marble4.png" }
+];
 
 const Catalog = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
   const container = useRef(null);
-
-  const filteredProducts = useMemo(() => {
-    if (activeCategory === "All") return products;
-    return products.filter(p => p.category === activeCategory);
-  }, [activeCategory]);
 
   useGSAP(() => {
     // 3D Tilt for Product Cards
@@ -93,99 +41,55 @@ const Catalog = () => {
         const y = clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -10;
-        const rotateY = ((x - centerX) / centerX) * 10;
-
-        gsap.to(card, {
-          rotateX,
-          rotateY,
-          transformPerspective: 1000,
-          duration: 0.8,
-          ease: "power3.out",
-          overwrite: "auto"
-        });
-
-        // Parallax effect for the image inside
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+        gsap.to(card, { rotateX, rotateY, transformPerspective: 1000, duration: 0.8, ease: "power3.out", overwrite: "auto", force3D: true });
         const img = card.querySelector("img");
-        gsap.to(img, {
-          x: ((x - centerX) / centerX) * -8,
-          y: ((y - centerY) / centerY) * -8,
-          duration: 1,
-          ease: "power2.out",
-          overwrite: "auto"
-        });
+        if (img) {
+          gsap.to(img, { x: ((x - centerX) / centerX) * -6, y: ((y - centerY) / centerY) * -6, duration: 1, ease: "power2.out", overwrite: "auto", force3D: true });
+        }
       };
-
       const onMouseLeave = () => {
-        gsap.to(card, {
-          rotateX: 0,
-          rotateY: 0,
-          duration: 1.2,
-          ease: "elastic.out(1, 0.75)",
-          overwrite: "auto"
-        });
-        
+        gsap.to(card, { rotateX: 0, rotateY: 0, duration: 1.2, ease: "elastic.out(1, 0.75)", overwrite: "auto", force3D: true });
         const img = card.querySelector("img");
-        gsap.to(img, {
-          x: 0,
-          y: 0,
-          duration: 1.2,
-          ease: "power2.out",
-          overwrite: "auto"
-        });
+        if (img) {
+          gsap.to(img, { x: 0, y: 0, duration: 1.2, ease: "power2.out", overwrite: "auto", force3D: true });
+        }
       };
-
       card.addEventListener("mousemove", onMouseMove);
       card.addEventListener("mouseleave", onMouseLeave);
     });
 
-    // Reveal Header
-    gsap.fromTo(".catalog-reveal", 
+    // Header reveal
+    gsap.fromTo(".catalog-reveal",
       { y: 30, autoAlpha: 0 },
-      {
-        y: 0,
-        autoAlpha: 1,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".catalog-header",
-          start: "top 95%",
-          fastScrollEnd: true
-        }
+      { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: ".catalog-header", start: "top 95%", fastScrollEnd: true }
       }
     );
 
-    // Batch reveal for products - Optimized for Safari
+    // Gallery reveal
     ScrollTrigger.batch(".product-card", {
       onEnter: (elements) => {
-        gsap.fromTo(elements, 
+        gsap.fromTo(elements,
           { autoAlpha: 0, y: 30 },
-          { 
-            autoAlpha: 1, 
-            y: 0, 
-            stagger: 0.08, 
-            duration: 0.8, 
-            ease: "expo.out",
-            force3D: true,
-            overwrite: true 
-          }
+          { autoAlpha: 1, y: 0, stagger: 0.07, duration: 0.8, ease: "expo.out", force3D: true, overwrite: true }
         );
       },
       start: "top 98%",
       fastScrollEnd: true
     });
-  }, { scope: container, dependencies: [filteredProducts] });
+  }, { scope: container });
 
   return (
     <div ref={container} className="pt-24 pb-20 px-6 md:px-12 bg-brand-light min-h-screen font-sans">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header */}
-        <div className="catalog-header grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-20">
+        <div className="catalog-header grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end mb-14">
           <div className="space-y-4">
             <div className="catalog-reveal relative h-16 md:h-24 overflow-hidden select-none pointer-events-none mb-4">
-              <span 
+              <span
                 className="absolute left-0 bottom-0 text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none opacity-10"
                 style={{ WebkitTextStroke: '1px var(--color-brand-brown)', color: 'transparent' }}
               >
@@ -204,80 +108,98 @@ const Catalog = () => {
           </div>
         </div>
 
-        {/* Filter Bar */}
-        <div className="catalog-reveal flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20 pb-8 border-b border-black/5">
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
-            {categories.map((cat) => (
-              <button 
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`group relative text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-500 ${
-                  activeCategory === cat ? 'text-brand-brown' : 'text-brand-brown/30 hover:text-brand-brown'
-                }`}
+        {/* CTA Bar - Improved with multiple downloads */}
+        <div className="catalog-reveal flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-16 pb-10 border-b border-black/5">
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center justify-center gap-3 px-10 py-4 bg-brand-brown text-white rounded-full font-black text-[10px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:bg-brand-gold hover:shadow-[0_10px_30px_rgba(197,160,89,0.3)] active:scale-95 w-full lg:w-auto"
+          >
+            <MessageCircle size={14} className="group-hover:scale-110 transition-transform duration-500" />
+            <span className="relative z-10">Enquire Now</span>
+            <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+          </a>
+
+          <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+            <a
+              href="/handlychair.pdf"
+              download="handlychair.pdf"
+              className="group flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-brand-brown/20 text-brand-brown rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-500 hover:border-brand-gold hover:text-brand-gold active:scale-95 w-full sm:w-auto"
+            >
+              <Download size={14} className="group-hover:-translate-y-1 transition-transform duration-500" />
+              <span>Furniture PDF</span>
+            </a>
+            
+            <a
+              href="/handlymarble.pdf"
+              download="handlymarble.pdf"
+              className="group flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-brand-brown/20 text-brand-brown rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-500 hover:border-brand-gold hover:text-brand-gold active:scale-95 w-full sm:w-auto"
+            >
+              <Download size={14} className="group-hover:-translate-y-1 transition-transform duration-500" />
+              <span>Marble PDF</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Furniture Gallery */}
+        <div className="mb-20">
+          <div className="catalog-reveal flex items-center gap-4 mb-8">
+            <div className="w-8 h-[2px] bg-brand-gold"></div>
+            <h2 className="text-2xl font-black text-brand-brown uppercase tracking-tight">Furniture Collection</h2>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {products.map((product) => (
+              <div
+                key={product.id}
+                className="product-card group gpu-accelerated cursor-default"
+                style={{ transformStyle: 'preserve-3d', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
               >
-                {cat}
-                <span className={`absolute -bottom-2 left-0 h-[2px] bg-brand-gold transition-all duration-500 ${
-                  activeCategory === cat ? 'w-full' : 'w-0 group-hover:w-4'
-                }`}></span>
-              </button>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[16px] sm:rounded-[24px] bg-brand-cream border border-black/5 shadow-sm group-hover:shadow-xl transition-shadow duration-700">
+                  <img
+                    src={product.image}
+                    alt="Handly furniture piece"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover scale-110"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Optimized Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-          {filteredProducts.map((product) => (
-            <div 
-              key={product.id} 
-              className="product-card group gpu-accelerated"
-              style={{ 
-                transformStyle: 'preserve-3d',
-                WebkitBackfaceVisibility: 'hidden',
-                backfaceVisibility: 'hidden'
-              }}
-            >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] bg-brand-cream border border-black/5 mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-700">
-                <img 
-                  src={product.image} 
-                  alt={product.name} 
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover scale-110"
-                />
-              </div>
-
-              <div className="px-1">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-base font-black text-brand-brown tracking-tight leading-tight group-hover:text-brand-gold transition-colors duration-500 uppercase">
-                    {product.name}
-                  </h3>
-                  <span className="text-xs font-black text-brand-brown/80">{product.price}</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <span className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-taupe/40">{product.category}</span>
-                  <div className="w-1 h-1 rounded-full bg-brand-gold/40"></div>
-                  <span className="text-[9px] font-bold text-brand-taupe/30 uppercase">Aiswarya Original</span>
-                </div>
-
-                {/* Enquire Button */}
-                <div className="mt-6">
-                  <a 
-                    href={getWhatsappLink(product.name)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn relative flex items-center justify-center space-x-3 w-full py-4 bg-brand-brown text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:bg-brand-gold hover:shadow-[0_10px_30px_rgba(197,160,89,0.3)]"
-                  >
-                    <MessageCircle size={14} className="group-hover/btn:scale-110 transition-transform duration-500" />
-                    <span className="relative z-10">Enquire Now</span>
-                    <div className="absolute inset-0 bg-white/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
-                  </a>
+        {/* Marble Gallery */}
+        <div>
+          <div className="catalog-reveal flex items-center gap-4 mb-8">
+            <div className="w-8 h-[2px] bg-brand-gold"></div>
+            <h2 className="text-2xl font-black text-brand-brown uppercase tracking-tight">Premium Marble</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {marbleProducts.map((marble) => (
+              <div
+                key={marble.id}
+                className="product-card group gpu-accelerated cursor-default max-w-[90%] sm:max-w-none mx-auto w-full"
+                style={{ transformStyle: 'preserve-3d', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}
+              >
+                <div className="relative aspect-video overflow-hidden rounded-[16px] sm:rounded-[24px] bg-brand-cream border border-black/5 shadow-sm group-hover:shadow-xl transition-shadow duration-700">
+                  <img
+                    src={marble.image}
+                    alt="Handly premium marble"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/5 hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="mt-32 border-t border-black/5"></div>
+        <div className="mt-24 border-t border-black/5" />
       </div>
     </div>
   );

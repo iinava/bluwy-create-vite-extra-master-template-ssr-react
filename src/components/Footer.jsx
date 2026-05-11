@@ -39,17 +39,15 @@ const Footer = () => {
                   />
                 </svg>
               </div>
-              <span className="text-2xl font-black tracking-tighter uppercase text-white">AISWARYA</span>
+              <span className="text-2xl font-black tracking-tighter uppercase text-white">HANDLY</span>
             </div>
             <p className="text-brand-light/60 leading-relaxed text-sm max-w-sm">
               The artisanal furniture agency's creative solutions enhance both aesthetics and functionality in every project undertaken. Our heritage techniques meet modern luxury.
             </p>
             <div className="flex space-x-4">
               {[
-                { Icon: Facebook, name: 'Facebook', id: 'facebook' },
                 { Icon: Instagram, name: 'Instagram', id: 'instagram' },
-                { Icon: Twitter, name: 'Twitter', id: 'twitter' },
-                { Icon: Youtube, name: 'Youtube', id: 'youtube' }
+                { Icon: Facebook, name: 'Facebook', id: 'facebook' }
               ].map(({ Icon, name, id }, i) => (
                 <a 
                   key={i} 
@@ -66,13 +64,17 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-6 lg:text-right flex flex-col lg:items-end">
-            <h4 className="text-lg font-bold tracking-tight">Kochi Office</h4>
+            <h4 className="text-lg font-bold tracking-tight">Contact Us</h4>
             <ul className="space-y-3 text-sm text-brand-light/60">
-              <li className="hover:text-brand-gold transition-colors cursor-pointer">aiswarya_info@furniture.com</li>
-              <li className="hover:text-brand-gold transition-colors cursor-pointer">+91 987 654 3210</li>
-              <li className="leading-relaxed">
-                9100 North Heritage Street<br />
-                Kochi, Kerala 682001
+              <li className="hover:text-brand-gold transition-colors cursor-pointer font-medium">Customer Care: +91 7034 026 662</li>
+              <li className="hover:text-brand-gold transition-colors cursor-pointer font-medium">www.handly.com <span className="opacity-50 mx-1">|</span> care@handly.com</li>
+              <li className="flex items-center lg:justify-end space-x-6 pt-3">
+                <a href="#instagram" onClick={(e) => e.preventDefault()} className="flex items-center space-x-2 hover:text-brand-gold transition-colors font-medium">
+                  <Instagram size={18} /> <span>handly</span>
+                </a>
+                <a href="#facebook" onClick={(e) => e.preventDefault()} className="flex items-center space-x-2 hover:text-brand-gold transition-colors font-medium">
+                  <Facebook size={18} /> <span>handly</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -81,7 +83,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-xs text-brand-light/40 font-medium">
-            ©2024 <span className="text-brand-gold">Aiswarya Furniture</span>. All Rights Reserved.
+            ©2024 <span className="text-brand-gold">Handly Furniture</span>. All Rights Reserved.
           </p>
           <div className="flex space-x-8 text-xs text-brand-light/40 font-medium">
             <a href="#terms" onClick={(e) => e.preventDefault()} className="hover:text-brand-gold transition-colors">Terms and Conditions</a>

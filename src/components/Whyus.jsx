@@ -138,12 +138,12 @@ export const AboutWhyUs = () => {
     <section ref={container} className="py-24 px-6 md:px-12 lg:px-24 bg-brand-light relative overflow-hidden font-sans">
       {/* Background Accent */}
       <div className="why-bg-accent absolute top-20 right-[-5%] w-[400px] h-[400px] bg-brand-gold/5 rounded-full blur-[100px] pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="why-header grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 items-end">
           <div>
             <span className="why-header-item text-[10px] font-black uppercase tracking-[0.3em] text-brand-gold mb-4 block">
-              The Aiswarya Advantage
+              The Handly Advantage
             </span>
             <h2 className="why-header-item text-4xl md:text-6xl font-black text-brand-brown leading-[0.9] uppercase tracking-tighter">
               WHY CHOOSE <br /> OUR CRAFT?

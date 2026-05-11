@@ -16,7 +16,7 @@ const Hero = () => {
       defaults: { ease: "power4.out", duration: 1.2 }
     });
 
-    tl.fromTo(".reveal-item", 
+    tl.fromTo(".reveal-item",
       { y: 40, autoAlpha: 0 },
       {
         y: 0,
@@ -48,7 +48,7 @@ const Hero = () => {
   }, { scope: container });
 
   return (
-    <section ref={container} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-32 md:pt-40 pb-24 px-6 lg:px-16 bg-brand-brown">
+    <section ref={container} className="relative min-h-[100dvh] w-full overflow-hidden flex items-center pt-32 md:pt-40 lg:pt-32 pb-24 lg:pb-16 px-6 lg:px-16 bg-brand-brown">
       {/* Background Image Carousel - CSS Animated */}
       <div className="absolute inset-0 z-0">
         <div ref={bgRef} className="absolute inset-0">
@@ -73,8 +73,8 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7 space-y-10 md:space-y-14">
-          
+        <div className="lg:col-span-8 space-y-10 md:space-y-14 lg:space-y-8">
+
           {/* Social Proof */}
           <div className="reveal-item flex items-center space-x-5">
             <div className="flex -space-x-3">
@@ -95,34 +95,35 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="space-y-8">
-            <h1 className="reveal-item text-white font-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[0.85] tracking-[-0.04em] uppercase text-wrap-balance">
-              Refined <br className="hidden md:block" />
-              <span className="text-white/40">Living</span> Spaces
+          <div className="space-y-8 lg:space-y-6">
+            <h1 className="reveal-item text-white font-black text-4xl md:text-5xl lg:text-[4rem] xl:text-[4.5rem] leading-[0.9] tracking-[-0.02em] uppercase text-wrap-balance">
+              Crafted for <span className="text-brand-gold italic font-serif serif lowercase">Elegance</span>,<br />
+              <span className="text-white/60">Designed for</span><br />
+              Everyday Living.
             </h1>
-            
-            <p className="reveal-item text-brand-light/80 text-base md:text-xl max-w-xl font-medium leading-relaxed text-wrap-pretty">
+
+            <p className="reveal-item text-brand-light/80 text-base md:text-md font-medium leading-relaxed text-wrap-pretty">
               Experience the pinnacle of furniture craftsmanship. We blend heritage techniques with modern aesthetics to create homes that tell a story.
             </p>
           </div>
 
-          <div className="reveal-item flex flex-wrap items-center gap-6 pt-4">
-            <Link 
+          <div className="reveal-item flex flex-wrap items-center gap-6 pt-4 lg:pt-2">
+            <Link
               to="/catalog"
               className="group relative bg-white text-brand-brown px-12 py-5 rounded-full text-xs font-black uppercase tracking-[0.2em] overflow-hidden transition-all hover:bg-yellow-400 hover:text-brand-brown active:scale-95 shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center"
             >
               <span className="relative z-10">Shop Collection</span>
             </Link>
-            <Link 
+            <Link
               to="/about"
-              className="group flex items-center space-x-3 text-white transition-all hover:text-yellow-400 active:scale-95"
+              className="group flex items-center gap-4 text-white transition-all hover:text-yellow-400 active:scale-95 py-2 px-2"
             >
-              <span className="text-xs font-black uppercase tracking-[0.2em]">Our Legacy</span>
-              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-yellow-400 transition-colors">
-                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                    <polyline points="7 7 17 7 17 17"></polyline>
-                 </svg>
+              <span className="text-xs font-black uppercase tracking-[0.2em] ml-2">Our Legacy</span>
+              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-yellow-400 transition-colors bg-white/5">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
               </div>
             </Link>
           </div>

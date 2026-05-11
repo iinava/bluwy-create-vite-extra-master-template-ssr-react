@@ -16,16 +16,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
 
-  useEffect(() => {
-    const hasLoaded = sessionStorage.getItem('hasLoaded');
-    if (hasLoaded) {
-      setLoading(false);
-    }
-  }, []);
-
   const handlePreloaderComplete = () => {
     setLoading(false);
-    sessionStorage.setItem('hasLoaded', 'true');
   };
 
   return (

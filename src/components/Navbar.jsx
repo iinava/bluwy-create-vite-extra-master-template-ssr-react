@@ -56,7 +56,7 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <span className="text-xl md:text-2xl font-black tracking-tighter uppercase hidden sm:block text-brand-brown">Aiswarya</span>
+          <span className="text-xl md:text-2xl font-black tracking-tighter uppercase hidden sm:block text-brand-brown">Handly</span>
         </Link>
 
         {/* Desktop Links */}

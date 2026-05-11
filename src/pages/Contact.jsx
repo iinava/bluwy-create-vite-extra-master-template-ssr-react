@@ -31,8 +31,8 @@ const Contact = () => {
     setIsSubmitting(true);
     
     // Construct WhatsApp Message
-    const whatsappNumber = "917025032459";
-    const text = `*New Inquiry from Aiswarya Furniture Website*%0A%0A` +
+    const whatsappNumber = "917034026662";
+    const text = `*New Inquiry from Handly Furniture Website*%0A%0A` +
                  `*Name:* ${formData.name}%0A` +
                  `*Phone:* ${formData.phone}%0A` +
                  `*Subject:* ${formData.subject}%0A` +
@@ -92,7 +92,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Call Us</p>
-                  <p className="text-base font-bold text-slate-900 tracking-tight">+91 70250 32459</p>
+                  <p className="text-base font-bold text-slate-900 tracking-tight">+91 7034 026 662</p>
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Email Us</p>
-                  <p className="text-base font-bold text-slate-900 tracking-tight">hello@aiswarya.com</p>
+                  <p className="text-base font-bold text-slate-900 tracking-tight">care@handly.com</p>
                 </div>
               </div>
 
@@ -252,7 +252,7 @@ const Contact = () => {
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Aiswarya Furniture Showroom Location"
+              title="Handly Furniture Showroom Location"
             ></iframe>
         </div>
       </div>
