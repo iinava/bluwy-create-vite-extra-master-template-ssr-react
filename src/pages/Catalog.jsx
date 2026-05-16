@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const whatsappNumber = "+917025032459";
-const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent("Hi Handly Furniture, I'd like to enquire about your collection.")}`;
+const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}?text=${encodeURIComponent("Hi Handly Furniture, I'd like to enquire about a wholesale order.")}`;
 
 const products = [
   { id: 1, image: "/handlychairs/5.png" },
@@ -117,7 +117,7 @@ const Catalog = () => {
             className="group relative flex items-center justify-center gap-3 px-10 py-4 bg-brand-brown text-white rounded-full font-black text-[10px] uppercase tracking-[0.2em] overflow-hidden transition-all duration-500 hover:bg-brand-gold hover:shadow-[0_10px_30px_rgba(197,160,89,0.3)] active:scale-95 w-full lg:w-auto"
           >
             <MessageCircle size={14} className="group-hover:scale-110 transition-transform duration-500" />
-            <span className="relative z-10">Enquire Now</span>
+            <span className="relative z-10">Wholesale Enquiry</span>
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </a>
 

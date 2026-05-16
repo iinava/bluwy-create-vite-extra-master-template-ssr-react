@@ -60,7 +60,7 @@ const Footer = () => {
           <div className="space-y-6 lg:text-right flex flex-col lg:items-end">
             <h4 className="text-lg font-bold tracking-tight">Contact Us</h4>
             <ul className="space-y-3 text-sm text-brand-light/60">
-              <li className="hover:text-brand-gold transition-colors cursor-pointer font-medium">Customer Care: +91 7034 026 662</li>
+              <li className="hover:text-brand-gold transition-colors cursor-pointer font-medium">Trade & Wholesale Enquiries: +91 7034 026 662</li>
               <li className="hover:text-brand-gold transition-colors cursor-pointer font-medium">www.handly.com <span className="opacity-50 mx-1">|</span> care@handly.com</li>
               <li className="flex items-center lg:justify-end space-x-6 pt-3">
                 <a href="#instagram" onClick={(e) => e.preventDefault()} className="flex items-center space-x-2 hover:text-brand-gold transition-colors font-medium">

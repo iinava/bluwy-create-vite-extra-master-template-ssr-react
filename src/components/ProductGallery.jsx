@@ -90,7 +90,7 @@ const ProductGallery = () => {
               <span className="text-brand-brown italic serif font-serif">Every Detail.</span>
             </h1>
             <p className="gallery-text-item text-slate-500 text-lg leading-relaxed max-w-md">
-              We bring together heritage craftsmanship and modern silhouettes to create furniture that doesn't just fill a room—it completes a home.
+              We bring together heritage craftsmanship and modern silhouettes to create furniture that doesn't just fill a room—it completes a room.
             </p>
           </div>
 

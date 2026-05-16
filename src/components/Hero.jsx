@@ -91,7 +91,7 @@ const Hero = () => {
             <div className="h-10 w-[1px] bg-white/20 hidden sm:block"></div>
             <div>
               <p className="text-yellow-400 text-3xl font-black leading-none tracking-tight tabular-nums drop-shadow-lg">9000+</p>
-              <p className="text-brand-light/70 text-[9px] font-black uppercase tracking-[0.2em] mt-1">Global Satisfied Customers</p>
+              <p className="text-brand-light/70 text-[9px] font-black uppercase tracking-[0.2em] mt-1">Global Wholesale Partners</p>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ const Hero = () => {
             </h1>
 
             <p className="reveal-item text-brand-light/80 text-base md:text-md font-medium leading-relaxed text-wrap-pretty">
-              Experience the pinnacle of furniture craftsmanship. We blend heritage techniques with modern aesthetics to create homes that tell a story.
+              Experience the pinnacle of furniture craftsmanship. We blend heritage techniques with modern aesthetics. Exclusively serving B2B wholesale partners and bulk trade.
             </p>
           </div>
 

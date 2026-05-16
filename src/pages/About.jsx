@@ -169,7 +169,7 @@ const About = () => {
           </div>
           <div className="reveal-about max-w-md pb-1">
             <p className="text-brand-taupe/70 text-base md:text-lg leading-relaxed">
-              A beacon of elegance born from a 35-year legacy — redefining luxury living, dining, and premium furniture for those who dare to dream in style.
+              A beacon of elegance born from a 35-year legacy — redefining luxury living, dining, and premium furniture. We exclusively cater to wholesale and trade partners. No retail.
             </p>
           </div>
         </div>
@@ -212,7 +212,7 @@ const About = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-black/5 pt-8">
               {[
                 { stat: '35+', label: 'Years of Legacy' },
-                { stat: '9k+', label: 'Happy Customers' },
+                { stat: '9k+', label: 'Wholesale Partners' },
                 { stat: '120+', label: 'Homes Transformed' },
                 { stat: '100%', label: 'Artisanal Quality' },
               ].map((s, i) => (

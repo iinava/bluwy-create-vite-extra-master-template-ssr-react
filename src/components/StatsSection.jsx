@@ -35,7 +35,7 @@ const CountUp = ({ end, suffix = "" }) => {
 export const DetailedStats = () => {
   const stats = [
     { value: 15, suffix: "+", label: "Industry Best Awards" },
-    { value: 10000, suffix: "+", label: "Satisfied Customers" },
+    { value: 10000, suffix: "+", label: "Wholesale Partners" },
     { value: 3000, suffix: "+", label: "Designs of furniture" },
     { value: 1000, suffix: "+", label: "Unique ideas created" }
   ];

@@ -32,7 +32,7 @@ const Contact = () => {
     
     // Construct WhatsApp Message
     const whatsappNumber = "917034026662";
-    const text = `*New Inquiry from Handly Furniture Website*%0A%0A` +
+    const text = `*New Wholesale Inquiry from Handly Furniture Website*%0A%0A` +
                  `*Name:* ${formData.name}%0A` +
                  `*Phone:* ${formData.phone}%0A` +
                  `*Subject:* ${formData.subject}%0A` +
@@ -195,9 +195,9 @@ const Contact = () => {
                         onChange={handleChange}
                         className="w-full bg-white border border-slate-200 px-5 py-3.5 rounded-xl focus:outline-none focus:border-brand-brown focus:ring-1 focus:ring-brand-brown/10 transition-all appearance-none text-sm cursor-pointer pr-12"
                       >
-                        <option>Product Inquiry</option>
+                        <option>Wholesale Product Inquiry</option>
                         <option>Showroom Visit</option>
-                        <option>Custom Design Request</option>
+                        <option>Bulk Custom Order Request</option>
                         <option>General Feedback</option>
                       </select>
                       <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
@@ -224,7 +224,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className={`group flex items-center gap-5 bg-brand-brown text-white pl-8 pr-3 py-3 rounded-full text-xs font-black uppercase tracking-[0.2em] transition-all shadow-lg active:scale-95 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-black'}`}
                   >
-                    <span>{isSubmitting ? 'Sending...' : 'Send Inquiry'}</span>
+                    <span>{isSubmitting ? 'Sending...' : 'Send Wholesale Inquiry'}</span>
                     <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center transition-transform group-hover:rotate-45">
                       <ArrowRight size={16} />
                     </div>
