@@ -13,8 +13,8 @@ const About = () => {
 
   const offerings = [
     {
-      title: "Furniture Type",
-      items: ["Designer Furniture", "Modular Furniture", "Kids Furniture", "Antique", "Imported"],
+      title: "Product Focus",
+      items: ["Polypropylene Chairs", "Premium Marble Tops", "Cafe Seating", "Banquet Furniture", "Outdoor Seating"],
       span: "lg:col-span-2",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",
@@ -24,8 +24,8 @@ const About = () => {
       icon: <Box className="absolute -bottom-6 -right-6 w-40 h-40 text-white/[0.03] rotate-12 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:rotate-6" />
     },
     {
-      title: "Usage",
-      items: ["Living Room", "Outdoor Furniture", "Modular Kitchen", "Office", "School", "Bedroom"],
+      title: "Target Sectors",
+      items: ["Cafes & Restaurants", "Hotels & Resorts", "Event Banquets", "Commercial Offices", "Outdoor Spaces"],
       span: "lg:col-span-1",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",
@@ -35,8 +35,8 @@ const About = () => {
       icon: <Home className="absolute -bottom-6 -right-6 w-32 h-32 text-white/[0.03] -rotate-12 pointer-events-none transition-transform duration-700 group-hover:scale-110 group-hover:-rotate-6" />
     },
     {
-      title: "Services",
-      items: ["Same Day Delivery", "Delivery Available", "In Store Collect"],
+      title: "Trade Services",
+      items: [" Load Shipping", "Bulk Ordering", "Custom B2B Solutions"],
       span: "lg:col-span-1",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",
@@ -46,8 +46,8 @@ const About = () => {
       icon: <Truck className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:translate-x-4" />
     },
     {
-      title: "Material",
-      items: ["Polypropylene", "Marble"],
+      title: "Materials",
+      items: ["Polypropylene", "Marble Tops"],
       span: "lg:col-span-1",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",
@@ -57,15 +57,15 @@ const About = () => {
       icon: <Layers className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:-translate-y-4" />
     },
     {
-      title: "Amenities",
-      items: ["WiFi"],
+      title: "Partner Benefits",
+      items: ["Volume Pricing", "Dedicated Support", "Timely Delivery", "Sample Availability"],
       span: "lg:col-span-1",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",
       divider: "border-white/10",
       itemText: "text-white/80",
       cols: "grid-cols-1 gap-y-3",
-      icon: <Wifi className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:scale-110" />
+      icon: <Trophy className="absolute -bottom-4 -right-4 w-24 h-24 text-white/[0.03] pointer-events-none transition-transform duration-700 group-hover:scale-110" />
     }
   ];
 
