@@ -47,7 +47,7 @@ const About = () => {
     },
     {
       title: "Material",
-      items: ["Steel", "Plastic"],
+      items: ["Polypropylene", "Marble"],
       span: "lg:col-span-1",
       bg: "bg-brand-brown shadow-xl shadow-brand-brown/20 border border-white/5",
       titleColor: "text-brand-gold",

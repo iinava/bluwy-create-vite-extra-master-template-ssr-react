@@ -108,7 +108,7 @@ const TechnicalFeatures = () => {
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
         
-        {/* Left Side: Marble Showcase */}
+        {/* Left Side: Marble Tops Showcase */}
         <div className="relative h-[400px] lg:h-[600px] w-full flex items-center justify-center pt-10 lg:pt-0" style={{ perspective: '2000px' }}>
           
           {/* Decorative SVG Path */}
@@ -129,7 +129,7 @@ const TechnicalFeatures = () => {
           {/* Slab 2 (Front Center) */}
           <div className="marble-slab absolute w-[45%] md:w-[40%] aspect-[3/4] left-[27.5%] md:left-[30%] top-[15%] lg:top-[20%] z-10 rounded-2xl">
             <div className="marble-slab-inner w-full h-full rounded-2xl overflow-hidden border border-brand-gold/20 shadow-2xl shadow-brand-brown/15 bg-white gpu-accelerated cursor-default" style={{ transformStyle: 'preserve-3d', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)' }}>
-              <img src={marbles[1]} alt="Breccia Marble" className="w-full h-full object-cover" />
+              <img src={marbles[1]} alt="Breccia Marble Top" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -150,11 +150,21 @@ const TechnicalFeatures = () => {
             </span>
             <h2 className="text-5xl md:text-6xl lg:text-[5rem] font-black text-brand-brown leading-[0.9] uppercase tracking-tighter mb-6">
               PREMIUM <br />
-              <span className="text-brand-gold italic font-serif serif">MARBLE.</span>
+              <span className="text-brand-gold italic font-serif serif">MARBLE TOPS.</span>
             </h2>
-            <p className="text-brand-taupe/70 text-sm md:text-base leading-relaxed max-w-md">
-              Meticulously sourced from the finest quarries globally. Our exclusive marble surfaces offer unparalleled durability and timeless aesthetic perfection.
+            <p className="text-brand-taupe/70 text-sm md:text-base leading-relaxed max-w-md mb-6">
+              Meticulously sourced from the finest quarries globally. Our exclusive marble tops offer unparalleled durability and timeless aesthetic perfection.
             </p>
+            <div className="max-w-xl">
+              <h4 className="text-[9px] font-black uppercase tracking-[0.2em] text-brand-brown mb-3">Available Varieties</h4>
+              <div className="flex flex-wrap gap-2">
+                {["Pearl Cream Onyx", "Alfa Beige", "Skyrose Gold", "Bottochino Venato", "Alfa White", "William Grey", "Antresit Bianco", "Arabescato Gold", "Crysta Lonyx", "Amron Beige", "Avira Beige", "Breccia Oniciata", "Branco Commum", "Ebony Beige", "Amron Beige Carving", "Avira Beige Carving"].map((marble, idx) => (
+                  <span key={idx} className="text-[9px] font-black uppercase tracking-[0.1em] text-brand-taupe/80 bg-brand-cream/50 px-2.5 py-1.5 rounded-md border border-black/5 hover:border-brand-gold/30 hover:text-brand-brown transition-colors cursor-default">
+                    {marble}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
           
           <div className="tech-reveal">

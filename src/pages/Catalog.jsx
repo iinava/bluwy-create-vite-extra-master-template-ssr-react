@@ -137,7 +137,7 @@ const Catalog = () => {
               className="group flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-brand-brown/20 text-brand-brown rounded-full font-black text-[10px] uppercase tracking-[0.2em] transition-all duration-500 hover:border-brand-gold hover:text-brand-gold active:scale-95 w-full sm:w-auto"
             >
               <Download size={14} className="group-hover:-translate-y-1 transition-transform duration-500" />
-              <span>Marble PDF</span>
+              <span>Marble Tops PDF</span>
             </a>
           </div>
         </div>
@@ -170,11 +170,21 @@ const Catalog = () => {
           </div>
         </div>
 
-        {/* Marble Gallery */}
+        {/* Marble Tops Gallery */}
         <div>
-          <div className="catalog-reveal flex items-center gap-4 mb-8">
+          <div className="catalog-reveal flex items-center gap-4 mb-4">
             <div className="w-8 h-[2px] bg-brand-gold"></div>
-            <h2 className="text-2xl font-black text-brand-brown uppercase tracking-tight">Premium Marble</h2>
+            <h2 className="text-2xl font-black text-brand-brown uppercase tracking-tight">Premium Marble Tops</h2>
+          </div>
+          
+          <div className="catalog-reveal mb-10 max-w-5xl">
+            <div className="flex flex-wrap gap-2">
+              {["Pearl Cream Onyx", "Alfa Beige", "Skyrose Gold", "Bottochino Venato", "Alfa White", "William Grey", "Antresit Bianco", "Arabescato Gold", "Crysta Lonyx", "Amron Beige", "Avira Beige", "Breccia Oniciata", "Branco Commum", "Ebony Beige", "Amron Beige Carving", "Avira Beige Carving"].map((marble, idx) => (
+                <span key={idx} className="text-[10px] font-black uppercase tracking-[0.1em] text-brand-brown bg-white px-3 py-1.5 rounded-full border border-black/5 hover:border-brand-gold hover:text-brand-gold transition-colors cursor-default shadow-sm">
+                  {marble}
+                </span>
+              ))}
+            </div>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -187,7 +197,7 @@ const Catalog = () => {
                 <div className="relative aspect-video overflow-hidden rounded-[16px] sm:rounded-[24px] bg-brand-cream border border-black/5 shadow-sm group-hover:shadow-xl transition-shadow duration-700">
                   <img
                     src={marble.image}
-                    alt="Handly premium marble"
+                    alt="Handly premium marble tops"
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover scale-110"
